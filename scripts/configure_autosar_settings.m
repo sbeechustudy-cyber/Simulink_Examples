@@ -7,20 +7,16 @@ for i = 1:numel(models)
     load_system(mdl);
 
     % Core simulation/codegen settings
-    set_param(mdl,'SystemTargetFile','autosar.tlc');
+    try
+        set_param(mdl,'SystemTargetFile','autosar.tlc');
+    catch
+        set_param(mdl,'SystemTargetFile','ert.tlc');
+    end
     set_param(mdl,'SolverType','Fixed-step');
     set_param(mdl,'Solver','FixedStepDiscrete');
     set_param(mdl,'FixedStep','0.01');
     set_param(mdl,'ProdEqTarget','on');
     set_param(mdl,'GenCodeOnly','off');
-
-    % Fallback if AUTOSAR target not available in installation
-    try
-        cs = getActiveConfigSet(mdl);
-        stf = get_param(cs,'SystemTargetFile'); %#ok<NASGU>
-    catch
-        set_param(mdl,'SystemTargetFile','ert.tlc');
-    end
 
     save_system(mdl);
     close_system(mdl);

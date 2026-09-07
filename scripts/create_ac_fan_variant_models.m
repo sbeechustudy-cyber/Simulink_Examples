@@ -77,7 +77,6 @@ add_block('simulink/Sources/In1',[mdl '/DrvFanReq_pct'],'Position',[30 70 70 90]
 add_block('simulink/Sources/In1',[mdl '/PsgFanReq_pct'],'Position',[30 120 70 140]);
 add_block('simulink/Sources/In1',[mdl '/CabinTemp_degC'],'Position',[30 170 70 190]);
 add_block('simulink/Sources/In1',[mdl '/TempSetpoint_degC'],'Position',[30 220 70 240]);
-add_block('simulink/Sources/In1',[mdl '/FanCtrlMode_In'],'Position',[30 270 70 290]);
 
 % Variant subsystem
 add_block('simulink/Ports & Subsystems/Variant Subsystem',[mdl '/FanCtrl_Variant'], ...
@@ -99,7 +98,6 @@ add_block('simulink/Ports & Subsystems/In1',[mdl '/FanCtrl_Variant/DrvFanReq_pct
 add_block('simulink/Ports & Subsystems/In1',[mdl '/FanCtrl_Variant/PsgFanReq_pct'],'Position',[25 70 55 85]);
 add_block('simulink/Ports & Subsystems/In1',[mdl '/FanCtrl_Variant/CabinTemp_degC'],'Position',[25 105 55 120]);
 add_block('simulink/Ports & Subsystems/In1',[mdl '/FanCtrl_Variant/TempSetpoint_degC'],'Position',[25 140 55 155]);
-add_block('simulink/Ports & Subsystems/In1',[mdl '/FanCtrl_Variant/FanCtrlMode'],'Position',[25 175 55 190]); %#ok<NASGU>
 add_block('simulink/Ports & Subsystems/Out1',[mdl '/FanCtrl_Variant/FanCmd_pct'],'Position',[405 105 435 120]);
 
 % Manual choice subsystem
@@ -121,7 +119,6 @@ add_line(mdl,'DrvFanReq_pct/1','FanCtrl_Variant/1');
 add_line(mdl,'PsgFanReq_pct/1','FanCtrl_Variant/2');
 add_line(mdl,'CabinTemp_degC/1','FanCtrl_Variant/3');
 add_line(mdl,'TempSetpoint_degC/1','FanCtrl_Variant/4');
-add_line(mdl,'FanCtrlMode_In/1','FanCtrl_Variant/5');
 add_line(mdl,'FanCtrl_Variant/1','FanCmd_pct/1');
 
 % Wiring internals

@@ -18,7 +18,10 @@ Create an automotive-style Simulink model for AC FAN control demonstrating varia
   - `PsgFanReq_pct` (uint8, 0..100)
   - `CabinTemp_degC` (single, -40..85)
   - `TempSetpoint_degC` (single, 16..30)
-  - `FanCtrlMode` (enum `FanCtrlMode_e`)
+- Variant selection:
+  - `FanCtrlMode` is the enum-valued dictionary parameter that selects the active variant
+  - Manual active: `FanCtrlMode == FanCtrlMode_e.MANUAL`
+  - Auto active: `FanCtrlMode == FanCtrlMode_e.AUTO`
 - Variant subsystem/model behavior:
   - **Manual path** references `AC_FanCtrl_Manual.slx`
   - **Auto path** references `AC_FanCtrl_Auto.slx`
@@ -62,6 +65,7 @@ Contains control-specific data:
 ## Variant conditions
 - Manual active: `FanCtrlMode == FanCtrlMode_e.MANUAL`
 - Auto active: `FanCtrlMode == FanCtrlMode_e.AUTO`
+- The active variant is selected from the model data dictionary parameter, not from a top-level signal input.
 
 ## Configuration set requirements
 Applied to top and referenced models:

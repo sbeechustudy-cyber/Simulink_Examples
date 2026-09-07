@@ -30,7 +30,8 @@ From MATLAB, in repo root:
 
 ```matlab
 cd('<repo_root>');
-run('scripts/run_all_setup.m');
+addpath(fullfile(pwd, 'scripts'));
+run_all_setup();
 ```
 
 This will:
